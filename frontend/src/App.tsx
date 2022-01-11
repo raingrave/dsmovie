@@ -1,12 +1,24 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import Listing from 'pages/Listing';
+import Form from 'pages/Form';
+import Navbar from 'components/Navbar';
 import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="text-primary">Main Page</h1>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Listing />} />
+        <Route path="/form">
+          <Route path=":movieId" element={<Form />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
